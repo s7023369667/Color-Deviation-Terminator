@@ -1,1 +1,1 @@
-print("Heroku on")
+print("Heroku all set")
