@@ -1,5 +1,5 @@
 line-bot-sdk
 flask
 paho-mqtt
-opencv-python
+opencv-python-headless
 numpy
