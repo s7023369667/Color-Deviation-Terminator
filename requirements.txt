@@ -11,7 +11,7 @@ Jinja2==3.0.1
 line-bot-sdk==1.19.0
 MarkupSafe==2.0.1
 numpy==1.21.0
-opencv-python==4.5.2.54
+opencv-python-headless==4.2.0.32
 paho-mqtt==1.5.1
 pymongo==3.11.4
 pyserial==3.5
