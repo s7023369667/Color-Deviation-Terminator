@@ -12,7 +12,7 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
-ngrok_https = "https://60f832ab40c7.ngrok.io"
+ngrok_https = "http://8b6a9813a2ac.ngrok.io"
 app = Flask(__name__)
 # Channel Access Token
 line_bot_api = LineBotApi('QwBCQUIQh5cMfUr521OLL7s1Z/SmtYCAbJ9qz41lbMXt+JxW4YBSyTEOqiSZx10UZZ4fTzbKiBkTGqJPCMbCx8O2iofmXQlrdajPpVrzu9hQ6YiJiOWMlnIJZPm37MpQJ5DgYD3BO1uJN7d3pq3+BAdB04t89/1O/w1cDnyilFU=')
