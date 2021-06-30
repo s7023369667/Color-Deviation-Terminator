@@ -27,6 +27,10 @@ Step2:
 
 You will be ask to input the "R G B" which will be the specific "Color Codes" that you want to find out the color different from the "color code", and you will get a colored picture by using your color code.
 
+Step3:
+You ask "result" to get the caculation of the color difference, and it gives each channel the specific color distance.
+You get the "result" and you could correct your printout.
+
 <img width="311" alt="截圖 2021-06-30 下午3 41 40" src="https://user-images.githubusercontent.com/50870684/123921610-c3acf000-d9b9-11eb-8ce2-8450ce7f817d.png">
 
 
