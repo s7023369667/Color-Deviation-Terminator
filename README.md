@@ -4,6 +4,12 @@ This is the IoT project in the IoT class.
 
 We made a color detecter to correct the specific "Color Codes" which is the special "RGB value" for a particular application.
 
+Our goal is to find out the color different after we use the color sensor to detect the pictures with those specific "Color Codes",
+
+After we find out the color different we caculate the distance that we need to modified from each R,G,B channel.
+
+Hope we could make the user printout  the right pictures with the specific "Color Codes".
+
 Detail report in Chinese : report.pdf
 
 line bot :
