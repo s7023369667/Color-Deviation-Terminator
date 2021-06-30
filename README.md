@@ -11,10 +11,11 @@ line bot :
 
 <img width="204" alt="截圖 2021-06-30 下午3 08 01" src="https://user-images.githubusercontent.com/50870684/123917097-fef8f000-d9b4-11eb-85ed-454adc960e8f.png">
 
-How we ask bot to do things for us :
+How we ask bot doing things for us :
 
 
-<img width="355" alt="截圖 2021-06-30 下午3 32 40" src="https://user-images.githubusercontent.com/50870684/123920827-f0acd300-d9b8-11eb-8e7a-2177586d6a23.png">
+<img width="312" alt="截圖 2021-06-30 下午3 41 20" src="https://user-images.githubusercontent.com/50870684/123921580-bd1e7880-d9b9-11eb-8780-807c577a4d31.png">
 
 
-<img width="315" alt="截圖 2021-06-30 下午3 36 04" src="https://user-images.githubusercontent.com/50870684/123920847-f73b4a80-d9b8-11eb-9040-b65103325ef6.png">
+<img width="311" alt="截圖 2021-06-30 下午3 41 40" src="https://user-images.githubusercontent.com/50870684/123921610-c3acf000-d9b9-11eb-8ce2-8450ce7f817d.png">
+
