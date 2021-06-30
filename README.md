@@ -18,9 +18,14 @@ line bot :
 
 How we ask bot doing things for us :
 
+Step1 : 
+You could use "hi" to get "start" or "help".
 
 <img width="312" alt="截圖 2021-06-30 下午3 41 20" src="https://user-images.githubusercontent.com/50870684/123921580-bd1e7880-d9b9-11eb-8780-807c577a4d31.png">
 
+Step2: 
+
+You will be ask to input the "R G B" which will be the specific "Color Codes" , and you will get a colored picture by using your color code.
 
 <img width="311" alt="截圖 2021-06-30 下午3 41 40" src="https://user-images.githubusercontent.com/50870684/123921610-c3acf000-d9b9-11eb-8ce2-8450ce7f817d.png">
 
