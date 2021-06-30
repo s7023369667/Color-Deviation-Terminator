@@ -10,7 +10,6 @@ After we find out the color different we caculate the distance that we need to m
 
 Hope we could make the user printout  the right pictures with the specific "Color Codes".
 
-Detail report in Chinese : report.pdf
 
 line bot :
 
@@ -25,3 +24,6 @@ How we ask bot doing things for us :
 
 <img width="311" alt="截圖 2021-06-30 下午3 41 40" src="https://user-images.githubusercontent.com/50870684/123921610-c3acf000-d9b9-11eb-8ce2-8450ce7f817d.png">
 
+
+
+Detail report in Chinese : report.pdf
