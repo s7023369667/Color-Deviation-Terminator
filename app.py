@@ -12,7 +12,7 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
-ngrok_https = "http://8b6a9813a2ac.ngrok.io"
+# ngrok_https = "http://8b6a9813a2ac.ngrok.io"
 app = Flask(__name__)
 # Channel Access Token
 line_bot_api = LineBotApi('QwBCQUIQh5cMfUr521OLL7s1Z/SmtYCAbJ9qz41lbMXt+JxW4YBSyTEOqiSZx10UZZ4fTzbKiBkTGqJPCMbCx8O2iofmXQlrdajPpVrzu9hQ6YiJiOWMlnIJZPm37MpQJ5DgYD3BO1uJN7d3pq3+BAdB04t89/1O/w1cDnyilFU=')
@@ -100,7 +100,8 @@ def handle_message(event):  # 收到訊息時
         else:
             rgb = result[0].split()
             make_img(rgb)
-            img_link = ngrok_https + '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
+            img_link = '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
+            #img_link = ngrok_https + '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
             message.append(ImageSendMessage(original_content_url=img_link, preview_image_url=img_link))
             message.append(TextSendMessage(text='Measure(RGB): ({0}, {1}, {2})'.format(*rgb)))
             suggest = '\n'.join(result[1:])
@@ -130,8 +131,8 @@ def handle_message(event):  # 收到訊息時
             print(out)  # heroku上output
             
             make_img(rgb)
-            
-            img_link = ngrok_https + '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
+            img_link = '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
+            #img_link = ngrok_https + '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
             message1 = ImageSendMessage(original_content_url=img_link, preview_image_url=img_link)
             # message1 = TextSendMessage(text="debugging")
             message2 = TextSendMessage(text=out[0].decode('utf-8'))
@@ -140,7 +141,8 @@ def handle_message(event):  # 收到訊息時
             
     elif msg == 'debug':
         make_img([1, 2, 111])
-        img_link = ngrok_https + '/b111g2r1.jpg'
+        img_link = '/b111g2r1.jpg'
+        #img_link = ngrok_https + '/b111g2r1.jpg'
         # message = TextSendMessage(text="debugging")
         message = ImageSendMessage(original_content_url=img_link, preview_image_url=img_link)
         line_bot_api.reply_message(event.reply_token, message)
