@@ -5,11 +5,12 @@ import paho.mqtt.client as mqtt
 
 def arduino_conect():
     BAUD = 9600
-    PORT = "COM5"
+    #PORT = "COM5"  #windows
+    PORT = '/dev/tty.usbmodem14201' #mac
     return serial.Serial(PORT, BAUD)
 
 
-def main():
+def main(IP):
     time.sleep(3)
     # get arduino values
     arduino = arduino_conect()
@@ -44,8 +45,10 @@ def main():
             # pub the data to server
             client = mqtt.Client()
             client.username_pw_set("iot", "server")
-            client.connect("34.80.234.217", 1883, 60)
+            client.connect(IP, 1883, 60)
             client.publish("Sensor Server", "{R} {G} {B} {time}".format(**data))
 
+if __name__ == '__main__':
+    IP = "34.80.234.217"    #GCP
 
-main()
+    main(IP)
