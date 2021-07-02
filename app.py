@@ -125,10 +125,10 @@ def handle_message(event):  # 收到訊息時
             color_str = " ".join(rgb)
             upload_text = user_id + " " + color_str  # 要傳給mqtt_pub的參數
             
-            p = sp.Popen(['python3', 'mqtt_pub.py'], stdout=sp.PIPE, stdin=sp.PIPE)
-            p.stdin.write(upload_text.encode(encoding="utf-8"))  # 傳
-            out = p.communicate()  # status
-            print(out)  # heroku上output
+            # p = sp.Popen(['python3', 'mqtt_pub.py'], stdout=sp.PIPE, stdin=sp.PIPE)
+            # p.stdin.write(upload_text.encode(encoding="utf-8"))  # 傳
+            # out = p.communicate()  # status
+            # print(out)  # heroku上output
             
             make_img(rgb)
             img_link = '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
@@ -138,7 +138,7 @@ def handle_message(event):  # 收到訊息時
             # message1 = TextSendMessage(text="debugging")
 
             #message2 = TextSendMessage(text=out[0].decode('utf-8'))
-            p.stdin.close()
+            #p.stdin.close()
             line_bot_api.reply_message(event.reply_token, [message2])
             
     elif msg == 'debug':
