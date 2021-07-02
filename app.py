@@ -131,7 +131,7 @@ def handle_message(event):  # 收到訊息時
             print(out)  # heroku上output
             
             make_img(rgb)
-            img_link = 'https://limitless-lowlands-17434.herokuapp.com/'+'/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
+            img_link = 'https://limitless-lowlands-17434.herokuapp.com'+'/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
             message2 = TextSendMessage(text='success')
             #img_link = ngrok_https + '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
             message1 = ImageSendMessage(original_content_url=img_link, preview_image_url=img_link)
