@@ -126,19 +126,19 @@ def handle_message(event):  # 收到訊息時
             upload_text = user_id + " " + color_str  # 要傳給mqtt_pub的參數
             
             # p = sp.Popen(['python3', 'mqtt_pub.py'], stdout=sp.PIPE, stdin=sp.PIPE)
-            # p.stdin.write(upload_text.encode(encoding="utf-8"))  # 傳
+            # p.stdin.write(upload_text.encode(encoding="utf-8"))
             # out = p.communicate()  # status
             # print(out)  # heroku上output
             
             make_img(rgb)
             #img_link = 'https://34.238.108.61'+'/color_fig/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
-            message2 = TextSendMessage(text='success')
-            img_link = ngrok_https + '/color_fig/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
+            test2 = TextSendMessage(text='success')
+            img_link = ngrok_https + 'color_fig/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
             message1 = ImageSendMessage(original_content_url=img_link, preview_image_url=img_link)
             # message1 = TextSendMessage(text="debugging")
-            #message2 = TextSendMessage(text=out[0].decode('utf-8'))
+            # message2 = TextSendMessage(text=out[0].decode('utf-8'))
             #p.stdin.close()
-            line_bot_api.reply_message(event.reply_token, [message2,message1])
+            line_bot_api.reply_message(event.reply_token, [test2,message1])
             
     elif msg == 'debug':
         make_img([1, 2, 111])

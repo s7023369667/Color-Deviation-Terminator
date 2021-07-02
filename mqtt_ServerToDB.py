@@ -3,6 +3,7 @@ import paho.mqtt.client as mqtt
 import sys
 from collections import Counter, defaultdict
 import ast
+##sensor.py to mongoDB
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
