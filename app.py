@@ -134,12 +134,12 @@ def handle_message(event):  # 收到訊息時
             img_link = '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
             message2 = TextSendMessage(text='success')
             #img_link = ngrok_https + '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
-            message1 = ImageSendMessage(original_content_url=img_link, preview_image_url=img_link)
+            #message1 = ImageSendMessage(original_content_url=img_link, preview_image_url=img_link)
             # message1 = TextSendMessage(text="debugging")
 
             #message2 = TextSendMessage(text=out[0].decode('utf-8'))
             p.stdin.close()
-            line_bot_api.reply_message(event.reply_token, [message1, message2])
+            line_bot_api.reply_message(event.reply_token, [message2])
             
     elif msg == 'debug':
         make_img([1, 2, 111])
