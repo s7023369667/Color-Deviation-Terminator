@@ -1,7 +1,8 @@
 import paho.mqtt.client as mqtt
 import time
 
-IP="34.80.234.217"  #GCP
+#IP="34.80.234.217"  #GCP
+IP = "34.238.108.61" #heroku fixie proxy IP address
 
 client = mqtt.Client()
 client.username_pw_set("iot", "server")
