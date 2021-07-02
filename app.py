@@ -12,8 +12,8 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
-ngrok_https = "https://6d4b39159e35.ngrok.io"
-app = Flask(__name__)
+ngrok_https = "https://a884ed4aa32f.ngrok.io"
+app = Flask(__name__,static_folder='color_fig/')
 # Channel Access Token
 line_bot_api = LineBotApi('QwBCQUIQh5cMfUr521OLL7s1Z/SmtYCAbJ9qz41lbMXt+JxW4YBSyTEOqiSZx10UZZ4fTzbKiBkTGqJPCMbCx8O2iofmXQlrdajPpVrzu9hQ6YiJiOWMlnIJZPm37MpQJ5DgYD3BO1uJN7d3pq3+BAdB04t89/1O/w1cDnyilFU=')
 #line_bot_api = LineBotApi('r4pua6zy+mj9jssGz2WWA6M+0OTVSNv4Z35T5yAO0/bj3IwMLtKFN1miuyyZrlvO+aW1aGGx2dwzplBbKQiadZKCu3GtA2ulaxgPAxQW56oIgV9GAHdOC5CkCdYZWX3hKSF756x0blFGskhXLjFBSQdB04t89/1O/w1cDnyilFU=')
@@ -133,7 +133,7 @@ def handle_message(event):  # 收到訊息時
             make_img(rgb)
             #img_link = 'https://34.238.108.61'+'/color_fig/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
             test2 = TextSendMessage(text='success')
-            img_link = ngrok_https + 'color_fig/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
+            img_link = ngrok_https + 'b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
             message1 = ImageSendMessage(original_content_url=img_link, preview_image_url=img_link)
             # message1 = TextSendMessage(text="debugging")
             # message2 = TextSendMessage(text=out[0].decode('utf-8'))
