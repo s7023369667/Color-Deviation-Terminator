@@ -131,7 +131,8 @@ def handle_message(event):  # 收到訊息時
             print(out)  # heroku上output
             
             make_img(rgb)
-            img_link = 'https://34.238.108.61'+'/color_fig/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
+            img_link = 'https://www.google.com/search?q=picture&tbm=isch&ved=2ahUKEwis0azH9sPxAhVY4GEKHQFrDrgQ2-cCegQIABAA&oq=picture&gs_lcp=CgNpbWcQAzIFCAAQsQMyBQgAELEDMgIIADICCAAyAggAMgIIADICCAAyAggAMgIIADICCAA6BwgjEOoCECc6BAgjECdQ9WNYnXtgsXtoAXAAeACAAU6IAfYCkgEBN5gBAKABAaoBC2d3cy13aXotaW1nsAEKwAEB&sclient=img&ei=osjeYKz4BNjAhwOB1rnACw&bih=688&biw=1280#imgrc=5DWXdgFIbPsf8M'
+            #img_link = 'https://34.238.108.61'+'/color_fig/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
             message2 = TextSendMessage(text='success')
             #img_link = ngrok_https + '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
             message1 = ImageSendMessage(original_content_url=img_link, preview_image_url=img_link)
