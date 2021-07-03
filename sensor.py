@@ -1,6 +1,7 @@
 import serial
 import time
 import paho.mqtt.client as mqtt
+import pymongo
 
 
 def arduino_conect():
@@ -10,7 +11,7 @@ def arduino_conect():
     return serial.Serial(PORT, BAUD)
 
 
-def main(IP):
+def main():
     time.sleep(3)
     # get arduino values
     arduino = arduino_conect()
@@ -43,12 +44,12 @@ def main(IP):
             print('pub: r={R} g={G} b={B} time={time}'.format(**data))
             time.sleep(5)
             # pub the data to server
-            client = mqtt.Client()
-            client.username_pw_set("iot", "server")
-            client.connect(IP, 1883, 60)
-            client.publish("Sensor Server", "{R} {G} {B} {time}".format(**data))
+            USERNAME = 's7023369667'
+            PASSWORD = '7023369667s'
+            client = pymongo.MongoClient(f"mongodb+srv://{USERNAME}:{PASSWORD}@iot-mongodb.qsu7o.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+            db = client.pythondb
+            sensor_sever = db.datas
+            sensor_sever.insert_one(data)
 
 if __name__ == '__main__':
-    IP = "34.80.234.217"    #GCP
-
-    main(IP)
+    main()
