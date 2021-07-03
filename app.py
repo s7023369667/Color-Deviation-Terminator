@@ -125,7 +125,7 @@ def handle_message(event):  # 收到訊息時
             color_str = " ".join(rgb)
             upload_text = user_id + " " + color_str  # 要傳給mqtt_pub的參數
             
-            # p = sp.Popen(['python3', 'mqtt_pub.py'], stdout=sp.PIPE, stdin=sp.PIPE)
+            # p = sp.Popen(['python3', 'app2mongodb.py'], stdout=sp.PIPE, stdin=sp.PIPE)
             # p.stdin.write(upload_text.encode(encoding="utf-8"))
             # out = p.communicate()  # status
             # print(out)  # heroku上output

@@ -1,15 +1,13 @@
 import serial
 import time
-import paho.mqtt.client as mqtt
 import pymongo
-
+##sensor to mongodb
 
 def arduino_conect():
     BAUD = 9600
     #PORT = "COM5"  #windows
     PORT = '/dev/tty.usbmodem14201' #mac
     return serial.Serial(PORT, BAUD)
-
 
 def main():
     time.sleep(3)
@@ -48,8 +46,8 @@ def main():
             PASSWORD = '7023369667s'
             client = pymongo.MongoClient(f"mongodb+srv://{USERNAME}:{PASSWORD}@iot-mongodb.qsu7o.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
             db = client.pythondb
-            sensor_sever = db.datas
-            sensor_sever.insert_one(data)
+            sensor_sever_db = db.sensor_sever
+            sensor_sever_db.insert_one(data)
 
 if __name__ == '__main__':
     main()

@@ -82,10 +82,11 @@ def cmp(rgb1, rgb2):  # test, simple
 
 
 def main():
-    myclient = pymongo.MongoClient("mongodb://localhost:6666/")
-    myclient["iot"].authenticate("iot666", "iot666")
-    mydb = myclient["iot"]
-    linetable = mydb["linebot"]
+    USERNAME = 's7023369667'
+    PASSWORD = '7023369667s'
+    client = pymongo.MongoClient(f"mongodb+srv://{USERNAME}:{PASSWORD}@iot-mongodb.qsu7o.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    mydb = client.pythondb
+    linetable = mydb['line_sever']
 
     query = {'userID': input()}  # get by app.py
     result = list(linetable.find(query))
@@ -99,7 +100,6 @@ def main():
             r_rgb = tuple(map(float, (real['B'], real['G'], real['R'])))
             print('{0} {1} {2}'.format(real['R'], real['G'], real['B']))
             print('Suggestion(RGB): ({0}, {1}, {2})'.format(*cmp(r_rgb, i_rgb)))
-
             # finish -> delete data
             # linetable.delete_many(query)
             # sensortable.delete_many()
