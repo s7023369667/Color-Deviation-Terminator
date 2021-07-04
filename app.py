@@ -84,10 +84,10 @@ def handle_message(event):  # 收到訊息時
             )
         )
         line_bot_api.reply_message(event.reply_token, message)
-    elif msg == 'start': #開始說明
+    elif msg == 'start' or msg == 'start ': #開始說明
         message = "請依照此格式輸入\"R G B\""
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=message))
-    elif msg == 'result':  # 獲取結果的情況
+    elif msg == 'result' or msg == 'result ':  # 獲取結果的情況
         upload_text = event.source.user_id
         p = sp.Popen(['python3', 'Calculation.py'], stdout=sp.PIPE, stdin=sp.PIPE)
         p.stdin.write(upload_text.encode(encoding="utf-8"))  # 傳
