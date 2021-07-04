@@ -38,7 +38,7 @@ def main():
                 t_r, t_g, t_b = [int(e) for e in t_rgb[1:-1].split(',')]
                 r, g, b = r+t_r, g+t_g, b+t_b
             r, g, b = r//10, g//10, b//10
-            data = {'R': r, 'G': g, 'B': b, 'time': time.time()}
+            data = {'R': r, 'G': g, 'B': b, 'time': time.asctime(time.localtime(time.time()))}
             print('pub: r={R} g={G} b={B} time={time}'.format(**data))
             time.sleep(5)
             # pub the data to server
