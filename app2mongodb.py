@@ -13,5 +13,5 @@ db = client.pythondb
 line_sever_db = db.line_sever
 line_sever_db.insert_one(mydict)
 
-print("Publish on Line Sever:\n" + f"<UserID>{mydict['userID']}\n<R>{mydict['R']}\n<G>{mydict['G']}\n<B>{mydict['B']}\n<Time>{mydict['time']}")
+print("Publish on Line Sever:\n" + f"<UserID> {mydict['userID']}\n<R> {mydict['R']}\n<G> {mydict['G']}\n<B> {mydict['B']}\n<Time>{ mydict['time']}",end='')
 #print("Publish on Line Sever : " + "{userID} {R} {G} {B} {time}".format(**mydict))
