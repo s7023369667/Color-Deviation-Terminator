@@ -4,7 +4,7 @@ import time
 import pymongo
 
 line = [str(n) for n in input().split()]
-mydict = {"userID": line[0], "R": line[1], "G": line[2], "B": line[3], "time": time.time()}
+mydict = {"userID": line[0], "R": line[1], "G": line[2], "B": line[3], "time": time.asctime(time.localtime(time.time()))}
 
 USERNAME = 's7023369667'
 PASSWORD = '7023369667s'
@@ -13,4 +13,5 @@ db = client.pythondb
 line_sever_db = db.line_sever
 line_sever_db.insert_one(mydict)
 
-print("Publish on Line Sever : " + "{userID} {R} {G} {B} {time}".format(**mydict))
+print("Publish on Line Sever:\n" + f"<UserID>{mydict['userID']}\n<R>{mydict['R']}\n<G>{mydict['G']}\n<B>{mydict['B']}\n<Time>{mydict['time']}")
+#print("Publish on Line Sever : " + "{userID} {R} {G} {B} {time}".format(**mydict))
