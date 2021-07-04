@@ -13,7 +13,7 @@ from linebot.exceptions import (
 from linebot.models import *
 
 ngrok_https = "https://a884ed4aa32f.ngrok.io/"
-app = Flask(__name__,static_folder='color_fig/' )
+app = Flask(__name__,static_folder='color_fig/')
 # Channel Access Token
 line_bot_api = LineBotApi('QwBCQUIQh5cMfUr521OLL7s1Z/SmtYCAbJ9qz41lbMXt+JxW4YBSyTEOqiSZx10UZZ4fTzbKiBkTGqJPCMbCx8O2iofmXQlrdajPpVrzu9hQ6YiJiOWMlnIJZPm37MpQJ5DgYD3BO1uJN7d3pq3+BAdB04t89/1O/w1cDnyilFU=')
 #line_bot_api = LineBotApi('r4pua6zy+mj9jssGz2WWA6M+0OTVSNv4Z35T5yAO0/bj3IwMLtKFN1miuyyZrlvO+aW1aGGx2dwzplBbKQiadZKCu3GtA2ulaxgPAxQW56oIgV9GAHdOC5CkCdYZWX3hKSF756x0blFGskhXLjFBSQdB04t89/1O/w1cDnyilFU=')
@@ -23,6 +23,8 @@ handler = WebhookHandler('e06b7a3e38834cf653900077d62ac06a')
 
 
 def make_img(rgb):
+    if not os.path.exists('color_fig'):
+        os.mkdir('color_fig')
     img = np.zeros((100, 100, 3))  # build a picture size
 
     color = rgb[::-1]   # get b, g, r color value
@@ -32,7 +34,7 @@ def make_img(rgb):
         for j in range(100):
             for k in range(100):
                 img[j][k][i] = color[i]
-    s = 'color_fig/b{0}g{1}r{2}.jpg'.format(color[0], color[1], color[2])
+    s = '.color_fig/b{0}g{1}r{2}.jpg'.format(color[0], color[1], color[2])
     print(s)
     cv2.imwrite(s, img)  # save as jpg
     '''
@@ -123,7 +125,7 @@ def handle_message(event):  # 收到訊息時
         if error == 0:  # 輸入正確時
             user_id = event.source.user_id
             color_str = " ".join(rgb)
-            upload_text = user_id + " " + color_str  # 要傳給mqtt_pub的參數
+            upload_text = user_id + " " + color_str  # 要傳給app2mongodn.py的參數
             
             p = sp.Popen(['python3', 'app2mongodb.py'], stdout=sp.PIPE, stdin=sp.PIPE)
             p.stdin.write(upload_text.encode(encoding="utf-8"))
@@ -131,18 +133,17 @@ def handle_message(event):  # 收到訊息時
             print(out)  # heroku上output
             
             make_img(rgb)
-            test2 = TextSendMessage(text='success')
+            #test2 = TextSendMessage(text='success')
             img_link = ngrok_https + 'b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
             message1 = ImageSendMessage(original_content_url=img_link, preview_image_url=img_link)
             # message1 = TextSendMessage(text="debugging")
             message2 = TextSendMessage(text=out[0].decode('utf-8'))
             p.stdin.close()
-            line_bot_api.reply_message(event.reply_token, [test2,message1])
+            line_bot_api.reply_message(event.reply_token, [message1,message2])
             
     elif msg == 'debug':
         make_img([1, 2, 111])
-        img_link = '/b111g2r1.jpg'
-        #img_link = ngrok_https + '/b111g2r1.jpg'
+        img_link = ngrok_https + 'b111g2r1.jpg'
         # message = TextSendMessage(text="debugging")
         message = ImageSendMessage(original_content_url=img_link, preview_image_url=img_link)
         line_bot_api.reply_message(event.reply_token, message)
