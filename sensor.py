@@ -5,7 +5,7 @@ import pymongo
 
 def arduino_conect():
     BAUD = 9600
-    #PORT = "COM5"  #windows
+    #PORT = "COM5"  #raspaberry pi
     PORT = '/dev/tty.usbmodem14201' #mac
     return serial.Serial(PORT, BAUD)
 
@@ -45,7 +45,7 @@ def main():
             USERNAME = 's7023369667'
             PASSWORD = '7023369667s'
             client = pymongo.MongoClient(f"mongodb+srv://{USERNAME}:{PASSWORD}@iot-mongodb.qsu7o.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-            db = client.pythondb
+            db = client.iot
             sensor_sever_db = db.sensor_sever
             sensor_sever_db.insert_one(data)
 

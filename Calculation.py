@@ -85,7 +85,7 @@ def main():
     USERNAME = 's7023369667'
     PASSWORD = '7023369667s'
     client = pymongo.MongoClient(f"mongodb+srv://{USERNAME}:{PASSWORD}@iot-mongodb.qsu7o.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-    mydb = client.pythondb
+    mydb = client.iot
     linetable = mydb['line_sever']
 
     query = {'userID': input()}  # get by app.py

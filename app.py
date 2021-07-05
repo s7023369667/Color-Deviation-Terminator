@@ -13,7 +13,7 @@ from linebot.exceptions import (
 from linebot.models import *
 
 ngrok_https = "https://a884ed4aa32f.ngrok.io/"
-app = Flask(__name__,static_folder='color_fig/')
+app = Flask(__name__)
 # Channel Access Token
 line_bot_api = LineBotApi('QwBCQUIQh5cMfUr521OLL7s1Z/SmtYCAbJ9qz41lbMXt+JxW4YBSyTEOqiSZx10UZZ4fTzbKiBkTGqJPCMbCx8O2iofmXQlrdajPpVrzu9hQ6YiJiOWMlnIJZPm37MpQJ5DgYD3BO1uJN7d3pq3+BAdB04t89/1O/w1cDnyilFU=')
 #line_bot_api = LineBotApi('r4pua6zy+mj9jssGz2WWA6M+0OTVSNv4Z35T5yAO0/bj3IwMLtKFN1miuyyZrlvO+aW1aGGx2dwzplBbKQiadZKCu3GtA2ulaxgPAxQW56oIgV9GAHdOC5CkCdYZWX3hKSF756x0blFGskhXLjFBSQdB04t89/1O/w1cDnyilFU=')
@@ -23,8 +23,7 @@ handler = WebhookHandler('e06b7a3e38834cf653900077d62ac06a')
 
 
 def make_img(rgb):
-    if not os.path.exists('color_fig'):
-        os.mkdir('color_fig')
+
     img = np.zeros((100, 100, 3))  # build a picture size
 
     color = rgb[::-1]   # get b, g, r color value
@@ -34,7 +33,7 @@ def make_img(rgb):
         for j in range(100):
             for k in range(100):
                 img[j][k][i] = color[i]
-    s = 'color_fig/b{0}g{1}r{2}.jpg'.format(color[0], color[1], color[2])
+    s = '/tmp/b{0}g{1}r{2}.jpg'.format(color[0], color[1], color[2])
     print(s)
     cv2.imwrite(s, img)  # save as jpg
     '''
