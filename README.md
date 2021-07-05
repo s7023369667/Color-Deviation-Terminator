@@ -14,7 +14,7 @@ Hope we could make the user printout  the right pictures with the specific "Colo
 line bot :
 
 
-<img width="312" alt="截圖 2021-06-30 下午3 08 01" src="https://user-images.githubusercontent.com/50870684/123917097-fef8f000-d9b4-11eb-85ed-454adc960e8f.png">
+<img width="204" alt="截圖 2021-06-30 下午3 08 01" src="https://user-images.githubusercontent.com/50870684/123917097-fef8f000-d9b4-11eb-85ed-454adc960e8f.png">
 
 How we ask bot doing things for us :
 
