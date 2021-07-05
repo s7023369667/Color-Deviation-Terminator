@@ -86,14 +86,13 @@ def main():
     PASSWORD = '7023369667s'
     client = pymongo.MongoClient(f"mongodb+srv://{USERNAME}:{PASSWORD}@iot-mongodb.qsu7o.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
     mydb = client.iot
-    linetable = mydb['line_sever']
+    linetable = mydb['line']
 
     query = {'userID': input()}  # get by app.py
     result = list(linetable.find(query))
     if result:  # find user input
         ideal = max(result, key=lambda x: float(x["time"]))
-        print("ATTTT")
-        sensortable = mydb["sensor_sever"]
+        sensortable = mydb["sensor"]
         result = list(sensortable.find())
         if result:  # find sensor input
             real = max(result, key=lambda x: float(x["time"]))

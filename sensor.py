@@ -47,9 +47,7 @@ def main():
             print('publish: r={R} g={G} b={B} time={time}'.format(**data))
             time.sleep(5)
             # pub the data to server
-            USERNAME = 's7023369667'
-            PASSWORD = '7023369667s'
-            client = pymongo.MongoClient(f"mongodb+srv://{USERNAME}:{PASSWORD}@iot-mongodb.qsu7o.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+            client = pymongo.MongoClient("mongodb+srv://s7023369667:7023369667s@iot-mongodb.qsu7o.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
             db = client.iot
             sensor_db = db.sensor
             sensor_db.insert_one(data)
