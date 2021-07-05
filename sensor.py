@@ -51,8 +51,8 @@ def main():
             PASSWORD = '7023369667s'
             client = pymongo.MongoClient(f"mongodb+srv://{USERNAME}:{PASSWORD}@iot-mongodb.qsu7o.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
             db = client.iot
-            sensor_sever_db = db.sensor_sever
-            sensor_sever_db.insert_one(data)
+            sensor_db = db.sensor
+            sensor_db.insert_one(data)
 
 if __name__ == '__main__':
     main()
