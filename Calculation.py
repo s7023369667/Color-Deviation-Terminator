@@ -92,6 +92,7 @@ def main():
     result = list(linetable.find(query))
     if result:  # find user input
         ideal = max(result, key=lambda x: float(x["time"]))
+        print("ATTTT")
         sensortable = mydb["sensor_sever"]
         result = list(sensortable.find())
         if result:  # find sensor input
