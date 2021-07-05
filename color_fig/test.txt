@@ -1,1 +1,1 @@
-success wirte txt to giyhub
+success wirte txt to github by PyGithub
