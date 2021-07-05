@@ -12,14 +12,13 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
+# Channel ngrok
 ngrok_https = "https://a884ed4aa32f.ngrok.io/"
 app = Flask(__name__)
 # Channel Access Token
 line_bot_api = LineBotApi('QwBCQUIQh5cMfUr521OLL7s1Z/SmtYCAbJ9qz41lbMXt+JxW4YBSyTEOqiSZx10UZZ4fTzbKiBkTGqJPCMbCx8O2iofmXQlrdajPpVrzu9hQ6YiJiOWMlnIJZPm37MpQJ5DgYD3BO1uJN7d3pq3+BAdB04t89/1O/w1cDnyilFU=')
-#line_bot_api = LineBotApi('r4pua6zy+mj9jssGz2WWA6M+0OTVSNv4Z35T5yAO0/bj3IwMLtKFN1miuyyZrlvO+aW1aGGx2dwzplBbKQiadZKCu3GtA2ulaxgPAxQW56oIgV9GAHdOC5CkCdYZWX3hKSF756x0blFGskhXLjFBSQdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
 handler = WebhookHandler('e06b7a3e38834cf653900077d62ac06a')
-#handler = WebhookHandler('c7dea962820c73a58a907530bf8887e8')
 
 
 def make_img(rgb):
@@ -101,8 +100,8 @@ def handle_message(event):  # 收到訊息時
         else:
             rgb = result[0].split()
             make_img(rgb)
-            # img_link = '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
-            img_link = ngrok_https + '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
+            img_link = '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
+            #img_link = ngrok_https + '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
             message.append(ImageSendMessage(original_content_url=img_link, preview_image_url=img_link))
             message.append(TextSendMessage(text='Measure(RGB): ({0}, {1}, {2})'.format(*rgb)))
             suggest = '\n'.join(result[1:])
