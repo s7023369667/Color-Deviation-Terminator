@@ -99,7 +99,7 @@ def main():
             i_rgb = tuple(map(float, (ideal['B'], ideal['G'], ideal['R'])))
             r_rgb = tuple(map(float, (real['B'], real['G'], real['R'])))
             print('{0} {1} {2}'.format(real['R'], real['G'], real['B']))
-            print('Suggestion(RGB): ({0}, {1}, {2})'.format(*cmp(r_rgb, i_rgb)))
+            print('Suggestion(RGB): ({0}, {1}, {2})'.format(*cmp(r_rgb, i_rgb)),end='')
             # finish -> delete data
             # linetable.delete_many(query)
             # sensortable.delete_many()

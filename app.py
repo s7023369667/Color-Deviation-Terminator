@@ -102,7 +102,7 @@ def handle_message(event):  # 收到訊息時
             rgb = result[0].split()
             make_img(rgb)
             # img_link = '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
-            img_link = heroku_https + '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
+            img_link = heroku_https + 'b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
             message.append(ImageSendMessage(original_content_url=img_link, preview_image_url=img_link))
             message.append(TextSendMessage(text='Measure(RGB): ({0}, {1}, {2})'.format(*rgb)))
             suggest = '\n'.join(result[1:])
