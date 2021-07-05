@@ -43,7 +43,7 @@ def main():
             rgb, bottom = get_data(line)
             rgb=','.join([str(i) for i in rgb])
             r, g, b = [int(e) for e in rgb[:].split(',')]
-            data = {'R': r, 'G': g, 'B': b, 'time': time.asctime(time.localtime(time.time()))}
+            data = {'R': r, 'G': g, 'B': b, 'time': time.time()}
             print('publish: r={R} g={G} b={B} time={time}'.format(**data))
             time.sleep(5)
             # pub the data to server

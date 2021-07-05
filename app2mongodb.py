@@ -4,7 +4,7 @@ import time
 import pymongo
 
 line = [str(n) for n in input().split()]
-mydict = {"userID": line[0], "R": line[1], "G": line[2], "B": line[3], "time": time.asctime(time.localtime(time.time()))}
+mydict = {"userID": line[0], "R": line[1], "G": line[2], "B": line[3], "time": time.time()}
 
 USERNAME = 's7023369667'
 PASSWORD = '7023369667s'
