@@ -13,4 +13,4 @@ db = client.iot
 line_sever_db = db.line_sever
 line_sever_db.insert_one(mydict)
 ##Publish on Line Sever
-print(f"UserID: {mydict['userID']}\nR: {mydict['R']}\nG: {mydict['G']}\nB: {mydict['B']}\nTime: {mydict['time']}",end='')
+print(f"UserID: {mydict['userID']}\n(R,G,B): ({mydict['R']},{mydict['G']},{mydict['B']})\nTime: {mydict['time']}",end='')
