@@ -33,7 +33,7 @@ def make_img(rgb):
         for j in range(100):
             for k in range(100):
                 img[j][k][i] = color[i]
-    s = '/tmp/b{0}g{1}r{2}.jpg'.format(color[0], color[1], color[2])
+    s = 'b{0}g{1}r{2}.jpg'.format(color[0], color[1], color[2])
     print(s)
     cv2.imwrite(s, img)  # save as jpg
     '''
