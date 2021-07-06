@@ -45,7 +45,7 @@ def get_imgurl(rgb):
         for j in range(100):
             for k in range(100):
                 img[j][k][i] = color[i]
-    PATH = './color_fig/b{0}g{1}r{2}.jpg'.format(color[0], color[1], color[2])
+    PATH = './local_colorfig/b{0}g{1}r{2}.jpg'.format(color[0], color[1], color[2])
     cv2.imwrite(PATH ,img)  # save as jpg
     img_link = upload2imgure(PATH)
     return img_link
