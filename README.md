@@ -15,7 +15,8 @@ How we ask bot doing things for us :
 
 Step1 : 
 You could use "hi" to get "start" or "help".
-![IMG_4350](https://user-images.githubusercontent.com/50870684/124619733-7b0aa080-deab-11eb-98b8-89ce79a7f7b7.jpg)
+
+![IMG_3000](https://user-images.githubusercontent.com/50870684/124619733-7b0aa080-deab-11eb-98b8-89ce79a7f7b7.jpg)
 
 
 
