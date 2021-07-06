@@ -10,6 +10,11 @@ After we find out the color different we caculate the distance that we need to m
 
 Hope we could make the user printout  the right pictures with the specific "Color Codes".
 
+LineBot : 
+
+
+<img width="370" alt="截圖 2021-07-06 下午11 30 06" src="https://user-images.githubusercontent.com/50870684/124627421-1ef74a80-deb2-11eb-8c42-a3ab6b577d5f.png">
+
 
 How we ask bot doing things for us :
 
