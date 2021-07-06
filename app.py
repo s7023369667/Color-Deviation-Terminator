@@ -16,8 +16,6 @@ from linebot.exceptions import (
 from linebot.models import *
 
 # Channel https
-heroku_https = "https://limitless-lowlands-17434.herokuapp.com/"
-#ngrok_https = "https://a884ed4aa32f.ngrok.io/"
 app = Flask(__name__)
 # Channel Access Token
 line_bot_api = LineBotApi('QwBCQUIQh5cMfUr521OLL7s1Z/SmtYCAbJ9qz41lbMXt+JxW4YBSyTEOqiSZx10UZZ4fTzbKiBkTGqJPCMbCx8O2iofmXQlrdajPpVrzu9hQ6YiJiOWMlnIJZPm37MpQJ5DgYD3BO1uJN7d3pq3+BAdB04t89/1O/w1cDnyilFU=')
@@ -29,6 +27,7 @@ client_id= 'cf5bc7cf5274324'
 client_secret = '6f8e86f1dd36ee6f6f336276ad4c8248226be028'
 
 def upload2imgure(PATH):
+    ##upload image to Imgur
     im = pyimgur.Imgur(client_id)
     upload_img = im.upload_image(PATH,title="Upload via pyimgur")
     print(upload_img.link)
@@ -108,8 +107,6 @@ def handle_message(event):  # 收到訊息時
         else:
             rgb = result[0].split()
             img_link = get_imgurl(rgb)
-            # img_link = '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
-            #img_link = heroku_https + 'color_fig/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
             message.append(ImageSendMessage(original_content_url=img_link, preview_image_url=img_link))
             message.append(TextSendMessage(text='Measure(RGB): ({0}, {1}, {2})'.format(*rgb)))
             suggest = '\n'.join(result[1:])
@@ -139,17 +136,13 @@ def handle_message(event):  # 收到訊息時
             print(out)  # heroku上output
             
             img_link = get_imgurl(rgb)
-            #test2 = TextSendMessage(text='success')
-            #img_link = heroku_https + 'color_fig/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
             message1 = ImageSendMessage(original_content_url=img_link, preview_image_url=img_link)
-            # message1 = TextSendMessage(text="debugging")
             message2 = TextSendMessage(text=out[0].decode('utf-8'))
             p.stdin.close()
             line_bot_api.reply_message(event.reply_token, [message1,message2])
             
     elif msg == 'debug':
         img_link = get_imgurl([1, 2, 111])
-        #img_link = heroku_https + 'color_fig/b120g2r1.jpg'
         # message = TextSendMessage(text="debugging")
         message = ImageSendMessage(original_content_url=img_link, preview_image_url=img_link)
         line_bot_api.reply_message(event.reply_token, message)
