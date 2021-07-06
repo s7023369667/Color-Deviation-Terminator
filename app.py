@@ -5,6 +5,7 @@ import subprocess as sp
 from flask import Flask, request, abort
 import cv2
 import numpy as np
+import pyimgur
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -22,9 +23,18 @@ app = Flask(__name__)
 line_bot_api = LineBotApi('QwBCQUIQh5cMfUr521OLL7s1Z/SmtYCAbJ9qz41lbMXt+JxW4YBSyTEOqiSZx10UZZ4fTzbKiBkTGqJPCMbCx8O2iofmXQlrdajPpVrzu9hQ6YiJiOWMlnIJZPm37MpQJ5DgYD3BO1uJN7d3pq3+BAdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
 handler = WebhookHandler('e06b7a3e38834cf653900077d62ac06a')
+#Imgur client ID
+client_id= 'cf5bc7cf5274324'
+#Imgur client secret:
+client_secret = '6f8e86f1dd36ee6f6f336276ad4c8248226be028'
 
+def upload2imgure(PATH):
+    im = pyimgur.Imgur(client_id)
+    upload_img = im.upload_image(PATH,title="Upload via pyimgur")
+    print(upload_img.link)
+    return upload_img.link
 
-def make_img(rgb):
+def get_imgurl(rgb):
 
     img = np.zeros((100, 100, 3))  # build a picture size
 
@@ -35,16 +45,10 @@ def make_img(rgb):
         for j in range(100):
             for k in range(100):
                 img[j][k][i] = color[i]
-    s = './color_fig/b{0}g{1}r{2}.jpg'.format(color[0], color[1], color[2])
-    print(s)
-    cv2.imwrite(s, img)  # save as jpg
-    '''
-    cv2.namedWindow('My Image', cv2.WINDOW_NORMAL)  # zoom
-    cv2.imshow('My Image', img)  # show
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()  # close
-    '''
-
+    PATH = './color_fig/b{0}g{1}r{2}.jpg'.format(color[0], color[1], color[2])
+    cv2.imwrite(PATH ,img)  # save as jpg
+    img_link = upload2imgure(PATH)
+    return img_link
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -102,9 +106,9 @@ def handle_message(event):  # 收到訊息時
             message.append(TextSendMessage(text=result[0]))
         else:
             rgb = result[0].split()
-            make_img(rgb)
+            img_link = get_imgurl(rgb)
             # img_link = '/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
-            img_link = heroku_https + 'color_fig/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
+            #img_link = heroku_https + 'color_fig/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
             message.append(ImageSendMessage(original_content_url=img_link, preview_image_url=img_link))
             message.append(TextSendMessage(text='Measure(RGB): ({0}, {1}, {2})'.format(*rgb)))
             suggest = '\n'.join(result[1:])
@@ -133,9 +137,9 @@ def handle_message(event):  # 收到訊息時
             out = p.communicate()  # status
             print(out)  # heroku上output
             
-            make_img(rgb)
+            img_link = get_imgurl(rgb)
             #test2 = TextSendMessage(text='success')
-            img_link = heroku_https + 'color_fig/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
+            #img_link = heroku_https + 'color_fig/b{0}g{1}r{2}.jpg'.format(rgb[2], rgb[1], rgb[0])
             message1 = ImageSendMessage(original_content_url=img_link, preview_image_url=img_link)
             # message1 = TextSendMessage(text="debugging")
             message2 = TextSendMessage(text=out[0].decode('utf-8'))
@@ -143,8 +147,8 @@ def handle_message(event):  # 收到訊息時
             line_bot_api.reply_message(event.reply_token, [message1,message2])
             
     elif msg == 'debug':
-        make_img([1, 2, 111])
-        img_link = heroku_https + 'color_fig/b120g2r1.jpg'
+        img_link = get_imgurl([1, 2, 111])
+        #img_link = heroku_https + 'color_fig/b120g2r1.jpg'
         # message = TextSendMessage(text="debugging")
         message = ImageSendMessage(original_content_url=img_link, preview_image_url=img_link)
         line_bot_api.reply_message(event.reply_token, message)
