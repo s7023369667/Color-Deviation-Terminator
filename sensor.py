@@ -1,8 +1,9 @@
+##Goal : data from sensor to mongodb
+##At : sensor.py is using in raspberry pi.
+##Note : arduino.conf is used for supervising the mqtt protocol
 import serial
 import time
 import pymongo
-import paho.mqtt.client as mqtt
-##sensor to mongodb
 
 def arduino_conect():
     BAUD = 9600

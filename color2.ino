@@ -1,11 +1,10 @@
-
+//for Arduino --> for python sensor.py
 #define S0 8
 #define S1 9
 #define S2 12
 #define S3 11
 #define sensorOut 10
 #define but 13
-
 
 int rpin = 4;
 int gpin = 3;

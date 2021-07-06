@@ -1,4 +1,5 @@
-#app.py to mongoDB
+#Goal : app.py to mongoDB
+#At : heroku sever with coludmongo
 #https://cloud.mongodb.com/v2/60dea5002080b87f56f2ec26#clusters
 import time
 import pymongo

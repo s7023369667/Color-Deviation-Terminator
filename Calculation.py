@@ -1,7 +1,8 @@
+#Goal : calculate the difference of the linetable and the sensortable.
+#At : heroku sever with coludmongo
 import pymongo
 import math
 import numpy as np
-
 
 def ColorDistance(rgb_1, rgb_2):  # calculate RGB dis directly
     B_1, G_1, R_1 = rgb_1
