@@ -16,7 +16,7 @@ How we ask bot doing things for us :
 Step1 : 
 You could use "hi" to get "start" or "help".
 
-![IMG_20](https://user-images.githubusercontent.com/50870684/124619733-7b0aa080-deab-11eb-98b8-89ce79a7f7b7.jpg)
+![start](https://user-images.githubusercontent.com/50870684/124622119-6af3c080-dead-11eb-8fa0-654fce3a4b54.png)
 
 
 
@@ -24,14 +24,14 @@ Step2:
 
 You will be ask to input the "R G B" which will be the specific "Color Codes" that you want to find out the color different from the "color code", and you will get a colored picture by using your color code.
 
-![IMG_4351](https://user-images.githubusercontent.com/50870684/124619778-852c9f00-deab-11eb-8a3f-f6570a9c7558.jpg)
 
 Step3:
 
 You ask "result" to get the caculation of the color difference, and it gives each channel the specific color distance.
 You get the "result" and you could correct your printout.
 
-![IMG_4352](https://user-images.githubusercontent.com/50870684/124619879-983f6f00-deab-11eb-84e8-b09f98d4a12a.jpg)
+![result](https://user-images.githubusercontent.com/50870684/124622224-819a1780-dead-11eb-9dd3-fca841ac3994.png)
+
 
 
 
