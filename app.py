@@ -35,9 +35,10 @@ def upload2imgure(PATH):
     return upload_img.link
 
 def get_imgurl(rgb):
-
+    if not os.path.exists('color_fig'):
+        print("Creat Directort:color_fig")
+        os.mkdir('color_fig')
     img = np.zeros((100, 100, 3))  # build a picture size
-
     color = rgb[::-1]   # get b, g, r color value
     print(color)
     color = [int(e) for e in color]
@@ -45,7 +46,7 @@ def get_imgurl(rgb):
         for j in range(100):
             for k in range(100):
                 img[j][k][i] = color[i]
-    PATH = './local_colorfig/b{0}g{1}r{2}.jpg'.format(color[0], color[1], color[2])
+    PATH = './color_fig/b{0}g{1}r{2}.jpg'.format(color[0], color[1], color[2])
     cv2.imwrite(PATH ,img)  # save as jpg
     img_link = upload2imgure(PATH)
     return img_link
