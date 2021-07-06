@@ -1,6 +1,6 @@
 
 # Color-Deviation-Terminator
-This is the IoT project in the IoT class.
+This was the IoT project in the IoT class.
 
 We made a color detecter to correct the specific "Color Codes" which is the special "RGB value" for a particular application.
 
