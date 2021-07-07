@@ -3,6 +3,7 @@
 import pymongo
 import math
 import numpy as np
+from heroku.Color_Deviation_Terminator.get_secret import Secret
 
 def ColorDistance(rgb_1, rgb_2):  # calculate RGB dis directly
     B_1, G_1, R_1 = rgb_1
@@ -83,8 +84,9 @@ def cmp(rgb1, rgb2):  # test, simple
 
 
 def main():
-    USERNAME = 's7023369667'
-    PASSWORD = '7023369667s'
+    s=Secret()
+    USERNAME = s.get_mongodb_userid()
+    PASSWORD = s.get_mongodb_password()
     client = pymongo.MongoClient(f"mongodb+srv://{USERNAME}:{PASSWORD}@iot-mongodb.qsu7o.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
     mydb = client.iot
     linetable = mydb['line']

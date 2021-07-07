@@ -6,6 +6,7 @@ from flask import Flask, request, abort
 import cv2
 import numpy as np
 import pyimgur
+from heroku.Color_Deviation_Terminator.get_secret import Secret
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -15,16 +16,21 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
+s=Secret()
 # Channel https
 app = Flask(__name__)
 # Channel Access Token
-line_bot_api = LineBotApi('QwBCQUIQh5cMfUr521OLL7s1Z/SmtYCAbJ9qz41lbMXt+JxW4YBSyTEOqiSZx10UZZ4fTzbKiBkTGqJPCMbCx8O2iofmXQlrdajPpVrzu9hQ6YiJiOWMlnIJZPm37MpQJ5DgYD3BO1uJN7d3pq3+BAdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi(s.get_linebot_CAT())
+#line_bot_api = LineBotApi('QwBCQUIQh5cMfUr521OLL7s1Z/SmtYCAbJ9qz41lbMXt+JxW4YBSyTEOqiSZx10UZZ4fTzbKiBkTGqJPCMbCx8O2iofmXQlrdajPpVrzu9hQ6YiJiOWMlnIJZPm37MpQJ5DgYD3BO1uJN7d3pq3+BAdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
-handler = WebhookHandler('e06b7a3e38834cf653900077d62ac06a')
+handler = WebhookHandler(s.get_linebot_CS())
+#handler = WebhookHandler('e06b7a3e38834cf653900077d62ac06a')
 #Imgur client ID
-client_id= 'cf5bc7cf5274324'
+client_id = s.get_imgur_CI()
+#client_id= 'cf5bc7cf5274324'
 #Imgur client secret:
-client_secret = '6f8e86f1dd36ee6f6f336276ad4c8248226be028'
+client_secret = s.get_imgur_CS()
+#client_secret = '6f8e86f1dd36ee6f6f336276ad4c8248226be028'
 
 def upload2imgure(PATH):
     ##upload image to Imgur
