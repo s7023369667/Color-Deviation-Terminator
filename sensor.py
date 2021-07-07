@@ -4,7 +4,6 @@
 import serial
 import time
 import pymongo
-from heroku.Color_Deviation_Terminator.get_secret import Secret
 
 def arduino_conect():
     BAUD = 9600
@@ -49,9 +48,8 @@ def main():
             print('publish: r={R} g={G} b={B} time={time}'.format(**data))
             time.sleep(5)
             # pub the data to server
-            s=Secret()
-            USERNAME = s.get_mongodb_userid()
-            PASSWORD = s.get_mongodb_password()
+            USERNAME = 'Add yours'
+            PASSWORD = 'Add yours'
             client = pymongo.MongoClient(f"mongodb+srv://{USERNAME}:{PASSWORD}@iot-mongodb.qsu7o.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
             db = client.iot
             sensor_db = db.sensor

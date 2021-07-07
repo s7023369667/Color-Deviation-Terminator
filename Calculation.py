@@ -1,9 +1,8 @@
 #Goal : calculate the difference of the linetable and the sensortable.
-#At : heroku sever with coludmongo
+#At : heroku-test sever with coludmongo
 import pymongo
 import math
 import numpy as np
-from heroku.Color_Deviation_Terminator.get_secret import Secret
 
 def ColorDistance(rgb_1, rgb_2):  # calculate RGB dis directly
     B_1, G_1, R_1 = rgb_1
@@ -84,9 +83,8 @@ def cmp(rgb1, rgb2):  # test, simple
 
 
 def main():
-    s=Secret()
-    USERNAME = s.get_mongodb_userid()
-    PASSWORD = s.get_mongodb_password()
+    USERNAME = 'Add yours'
+    PASSWORD = 'Add yours'
     client = pymongo.MongoClient(f"mongodb+srv://{USERNAME}:{PASSWORD}@iot-mongodb.qsu7o.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
     mydb = client.iot
     linetable = mydb['line']

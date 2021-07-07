@@ -9,8 +9,7 @@ from linebot.models import *
 class Secret():
     def get_linebot_CAT(self):
         # Channel Access Token
-        line_bot_api = LineBotApi(
-            'QwBCQUIQh5cMfUr521OLL7s1Z/SmtYCAbJ9qz41lbMXt+JxW4YBSyTEOqiSZx10UZZ4fTzbKiBkTGqJPCMbCx8O2iofmXQlrdajPpVrzu9hQ6YiJiOWMlnIJZPm37MpQJ5DgYD3BO1uJN7d3pq3+BAdB04t89/1O/w1cDnyilFU=')
+        line_bot_api = LineBotApi('Add yours')
         return line_bot_api
     def get_linebot_CS(self):
         # Channel Secret
