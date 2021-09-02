@@ -1,0 +1,24 @@
+heroku login
+
+herou create <app.name>
+##看log中所有的actives
+heroku logs --tail
+
+##built cancle重新使用的指令
+$ heroku plugins:install heroku-builds
+$ heroku builds:cancel
+$ heroku restart
+
+git push heroku main
+
+heroku git:remote -a limitless-lowlands-17434
+
+##在bash查看app的sturcture:
+heroku run bash -a limitless-lowlands-17434
+ls
+cd <folder>
+
+
+requirement.txt
+runtime.txt
+Procfile
