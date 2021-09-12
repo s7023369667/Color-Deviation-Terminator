@@ -2,22 +2,20 @@ reference: https://zhuanlan.zhihu.com/p/351356702
 
 ##安裝supervisor
 sudo apt-get install supervisor
-##進入/etc/supervisor/cong.d
-cd /etc/supervisor/conf.d
-##創建xxxx.conf
+##進入/etc/supervisor/cong.d ,創建xxxx.conf並利用sudo nano編輯
 sudo nano /etc/supervisor/conf.d/xxxx.conf
-##nano arduino.conf
 
-	[program:mqtt_arduino]
-	command=python3 sensor.py  ##python腳本執行命令
-	directory=/home/pi/iot   ##python腳本路徑
-	autostart=true	
-	autorestart=true	##程式異常退出後重啟
-	stopsignal=INT	##隨著supervisord啟動而啟動
-	stopasgroup=true	
-	killasgroup=true
-	stdout_logfile=/home/pi/iot/out.log ##日誌存放在已存在路徑
-	stderr_logfile=/home/pi/iot/error.log ##錯誤日誌文件存在已存在路徑
+[program:xxxx]                          ##xxxx和xxxx.conf的名稱一致
+command=python3 sensor.py               ##python腳本執行命令
+directory=/home/pi/iot                  ##python腳本路徑
+autostart=true
+autorestart=true	                    ##程式異常退出後重啟
+stopsignal=INT	                        ##隨著supervisord啟動而啟動
+stopasgroup=true
+killasgroup=true
+stdout_logfile=/home/pi/iot/out.log     ##日誌存放在已存在路徑
+stderr_logfile=/home/pi/iot/error.log   ##錯誤日誌文件存在已存在路徑
+
 
 ##修改supervisor程序監控工具中.conf的文件權限
 sudo chmod 775 xxxx.conf
