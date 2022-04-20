@@ -10,6 +10,10 @@ After we find out the color different we caculate the distance that we need to m
 
 Hope we could make the user printout  the right pictures with the specific "Color Codes".
 
+![image](https://raw.githubusercontent.com/s7023369667/Color-Deviation-Terminator/main/%E8%89%B2%E5%B7%AE%E6%AA%A2%E6%B8%AC%E5%99%A8%E7%A4%BA%E6%84%8F%E5%9C%96.png)
+
+![image](https://github.com/s7023369667/Color-Deviation-Terminator/blob/main/%E8%BB%9F%E9%AB%94%E4%B8%B2%E6%8E%A5%E6%B5%81%E7%A8%8B%E5%9C%96.png?raw=true)
+
 LineBot : 
 
 
